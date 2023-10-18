@@ -5,10 +5,9 @@ export default function Guest(props: PageProps) {
   return (
     <div class="guest">
       <BurgerMenu>
-        <pre>
-          // TODO
-        </pre>
-        <h1>Guest</h1>
+        <a href="/">
+          HOME
+        </a>
       </BurgerMenu>
     </div>
   );
