@@ -1,0 +1,71 @@
+:root {
+  --len: 50px;
+}
+
+.burger {
+  background-color: pink;
+  display: flex;
+  block-size: var(--len);
+  inline-size: var(--len);
+  flex-flow: column;
+  justify-content: space-evenly;
+}
+
+.burger {
+  overflow: hidden;
+
+  &>:nth-child(-n+3) {
+    background-color: black;
+    height: calc(var(--len) / 5);
+    appearance: none;
+  }
+
+  &>#close-burger {
+    display: none;
+  }
+
+  &~* {
+    display: none;
+  }
+}
+
+.burger:has(input:checked) {
+
+  &>:nth-child(-n+3) {
+    display: none;
+  }
+
+  &~* {
+    display: inherit;
+    position: sticky;
+    background-color: inherit transparent;
+  }
+
+  &>#close-burger {
+    rotate: 45deg;
+    display: flex;
+    flex-flow: row wrap;
+    inline-size: var(--len);
+    block-size: var(--len);
+
+    &>* {
+      inline-size: 50%;
+    }
+
+    &>:nth-child(even) {
+      border-inline-start: calc(var(--len) / 10) solid black;
+    }
+
+    &>:nth-child(-n+2) {
+      border-block-end: calc(var(--len) / 10) solid black;
+    }
+
+    &>:nth-child(n+3) {
+      border-block-start: calc(var(--len) / 10) solid black;
+    }
+
+    &>:nth-child(odd) {
+      border-inline-end: calc(var(--len) / 10) solid black;
+    }
+  }
+}
